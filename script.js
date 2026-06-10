@@ -32,9 +32,11 @@ boxes.forEach((box) => {
   });
 });
 const showWinner = (winner) => {
-  msgResponse.style.display = 'block';
+  msgResponse.style.display = "block";
   msgResponse.innerText = `Winner is ${winner}.`;
-  
+  for (let box of boxes) {
+    box.disabled = true;
+  }
 };
 const winValidation = () => {
   for (let pattern of winPatterns) {
@@ -46,7 +48,6 @@ const winValidation = () => {
       boxes[pattern[0]].innerText === boxes[pattern[2]].innerText
     ) {
       showWinner(boxes[pattern[0]].innerText);
-      alert(`Winner is ${boxes[pattern[0]].innerText}. Now, GAME OVER`);
     }
   }
 };
@@ -55,6 +56,7 @@ const reset = () => {
   for (let box of boxes) {
     box.innerText = "";
     box.disabled = false;
+    msgResponse.style.display = "none";
   }
 };
 
