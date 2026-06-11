@@ -47,6 +47,10 @@ h1 {
     box-shadow: 0 0 1rem #b48d8d;
     justify-content: center;
 }
+.boxes.winner{
+    background-color: #b9b1b1;
+   text-decoration: line-through;
+}
 
 .box:hover {
     background-color: #863a3a;

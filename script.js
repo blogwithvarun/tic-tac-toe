@@ -47,6 +47,9 @@ const winValidation = () => {
       boxes[pattern[0]].innerText === boxes[pattern[1]].innerText &&
       boxes[pattern[0]].innerText === boxes[pattern[2]].innerText
     ) {
+      boxes[pattern[0]].classList.add("winner");
+      boxes[pattern[1]].classList.add("winner");
+      boxes[pattern[2]].classList.add("winner");
       showWinner(boxes[pattern[0]].innerText);
     }
   }
@@ -55,9 +58,10 @@ const winValidation = () => {
 const reset = () => {
   for (let box of boxes) {
     box.innerText = "";
+    box.classList.remove("winner");
     box.disabled = false;
-    msgResponse.style.display = "none";
   }
+  msgResponse.style.display = "none";
 };
 
 resetBtn.addEventListener("click", reset);
